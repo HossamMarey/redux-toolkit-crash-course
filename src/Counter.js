@@ -1,11 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { dencrement, increment } from "./redux/features/counterSlice";
 
 export default function Counter({ handleIncrement, handleDecrement }) {
+  const dispatch = useDispatch();
+
   return (
     <div className="counter">
-      <button onClick={() => handleIncrement(1)}> + </button>
-      <button onClick={() => handleIncrement(3)}> + 3 </button>
-      <button onClick={() => handleDecrement(1)}> - </button>
+      <button onClick={() => dispatch(increment(1))}> + </button>
+      <button onClick={() => dispatch(increment(3))}> + 3 </button>
+      <button onClick={() => dispatch(dencrement(1))}> - </button>
     </div>
   );
 }
