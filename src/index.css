@@ -6,6 +6,8 @@
 body {
   font-family: "Segoe UI", sans-serif;
   background-color: beige;
+  width: 100vw;
+  overflow-x: hidden;
 }
 .app header {
   background-color: #292924;
