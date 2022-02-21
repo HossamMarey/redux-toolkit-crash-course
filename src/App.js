@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Counter from "./Counter";
 import Header from "./Header";
+import Users from "./Users";
 
 function App() {
   const [counter, setCounter] = useState(0);
@@ -33,6 +34,8 @@ function App() {
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
       />
+
+      <Users />
     </div>
   );
 }

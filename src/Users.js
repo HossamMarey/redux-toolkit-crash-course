@@ -1,22 +1,17 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getUsers } from "./redux/features/usersSlice";
 
 export default function Users() {
-  const [loading, setLoading] = useState(false);
-  const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
 
-  const getUsers = async () => {
-    setLoading(true);
-    const res = await fetch("https://jsonplaceholder.typicode.com/users");
-    const data = await res.json();
-    console.log(data);
-    setUsers(data);
-    setLoading(false);
-  };
+  const users = useSelector((state) => state.users.data);
+  const loading = useSelector((state) => state.users.loading);
 
   return (
     <section className="users">
-      <button onClick={getUsers} disabled={loading}>
-        {" "}
+      <button onClick={() => dispatch(getUsers())} disabled={loading}>
         {!loading ? "Get Users" : "Loading ..."}{" "}
       </button>
 
